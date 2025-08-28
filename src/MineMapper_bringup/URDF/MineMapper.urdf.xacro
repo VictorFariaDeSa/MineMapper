@@ -23,6 +23,8 @@
                 <origin xyz="0 0 0" rpy="0 0 0"/>
                 <material name="${color}"/>
             </visual>
+            <xacro:cylinder_inertia m = "1.0" r="${wheel_radius}" h="${wheel_height}" 
+                                    xyz="0 0 0" rpy="0 0 0"/>
         </link>
     </xacro:macro>
 
@@ -48,8 +50,10 @@
                             ${base_height}"/>
             </geometry>
             <origin xyz="0 0 ${base_height/2}" rpy="0 0 0"/>
-            <material name = "green"/>  
+            <material name = "green"/>
         </visual>
+        <xacro:box_inertia m = "1.0" l="${base_length}" w="${base_width}" h="${base_height}" 
+                                    xyz="0 0 ${base_height/2}" rpy="0 0 0"/>
     </link>
 
     <xacro:wheel_link side="right" color="grey"/>
@@ -66,6 +70,8 @@
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <material name = "grey"/>  
         </visual>
+        <xacro:sphere_inertia   m="1.0" r="${wheel_radius/2}" 
+                                xyz="0 0 0" rpy="0 0 0"/>
     </link>
 
     <joint name="base_caster_wheel_joint" type="fixed">
